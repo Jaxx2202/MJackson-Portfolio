@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>M. A. Jackson — Event Marketing Strategist</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black: #060d08; --surface: #0b1510; --card: #0f1d14; --border: #1c3024;
+    --green-deep: #0d2218; --green-mid: #174228; --green-bright: #2a7a4b;
+    --gold: #c8a45a; --gold-light: #e2c07a; --cream: #f0ece2;
+    --text: #a8b9ac; --text-dim: #546158;
+    --font-display: 'Cormorant Garamond', Georgia, serif;
+    --font-body: 'Outfit', sans-serif;
+  }
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { font-family: var(--font-body); background: var(--black); color: var(--cream); line-height: 1.6; overflow-x: hidden; }
+  body::before { content: ''; position: fixed; inset: 0; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E"); pointer-events: none; z-index: 9999; opacity: 0.35; }
+
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 20px 60px; display: flex; justify-content: space-between; align-items: center; background: linear-gradient(to bottom, rgba(6,13,8,0.97) 0%, transparent 100%); backdrop-filter: blur(4px); }
+  .nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+  .nav-logo-text { font-family: var(--font-display); font-size: 1rem; font-weight: 600; letter-spacing: 0.12em; color: var(--gold); text-transform: uppercase; }
+  .nav-links { display: flex; gap: 40px; list-style: none; }
+  .nav-links a { color: var(--text-dim); text-decoration: none; font-size: 0.75rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; transition: color 0.3s; }
+  .nav-links a:hover { color: var(--gold); }
+
+  .hero { min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr; position: relative; overflow: hidden; }
+  .hero-left { padding: 160px 60px 80px; display: flex; flex-direction: column; justify-content: flex-end; position: relative; z-index: 2; }
+  .hero-left::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: linear-gradient(to bottom, transparent, var(--green-bright), transparent); opacity: 0.4; }
+  .hero-eyebrow { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.35em; text-transform: uppercase; color: var(--gold); margin-bottom: 28px; display: flex; align-items: center; gap: 16px; }
+  .hero-eyebrow::before { content: ''; display: block; width: 48px; height: 1px; background: var(--gold); }
+  .hero-name { font-family: var(--font-display); font-size: clamp(4rem, 7vw, 7.5rem); font-weight: 300; line-height: 0.92; letter-spacing: -0.02em; color: #1c3424; margin-bottom: 16px; }
+  .hero-name em { font-style: italic; color: var(--gold-light); }
+  .hero-title { font-family: var(--font-display); font-size: clamp(1.1rem, 2vw, 1.5rem); font-weight: 300; font-style: italic; color: var(--text); margin-bottom: 48px; line-height: 1.5; }
+  .hero-statement { max-width: 480px; font-size: 0.95rem; color: var(--text-dim); line-height: 1.9; margin-bottom: 56px; border-left: 2px solid var(--green-bright); padding-left: 24px; opacity: 0.85; }
+  .hero-cta { display: flex; gap: 20px; flex-wrap: wrap; }
+  .btn-primary { display: inline-flex; align-items: center; gap: 10px; background: var(--gold); color: var(--black); padding: 14px 32px; text-decoration: none; font-weight: 600; font-size: 0.8rem; letter-spacing: 0.15em; text-transform: uppercase; transition: all 0.3s; }
+  .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); }
+  .btn-ghost { display: inline-flex; align-items: center; gap: 10px; border: 1px solid var(--border); color: var(--text); padding: 14px 32px; text-decoration: none; font-weight: 500; font-size: 0.8rem; letter-spacing: 0.15em; text-transform: uppercase; transition: all 0.3s; }
+  .btn-ghost:hover { border-color: var(--gold); color: var(--gold); }
+  .hero-right { position: relative; overflow: hidden; background: var(--green-deep); }
+  .hero-right::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 55% 70% at 65% 35%, rgba(42,122,75,0.2) 0%, transparent 65%), radial-gradient(ellipse 30% 30% at 80% 75%, rgba(200,164,90,0.07) 0%, transparent 60%); z-index: 1; }
+  .hero-grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(42,122,75,0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(42,122,75,0.08) 1px, transparent 1px); background-size: 60px 60px; }
+  .hero-large-text { position: absolute; bottom: -30px; right: -20px; font-family: var(--font-display); font-size: 22vw; font-weight: 700; color: transparent; -webkit-text-stroke: 1px rgba(42,122,75,0.13); line-height: 1; pointer-events: none; user-select: none; z-index: 2; }
+  .hero-badge { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 3; text-align: center; }
+  .badge-years { font-family: var(--font-display); font-size: 9rem; font-weight: 700; color: var(--gold); line-height: 0.85; display: block; opacity: 0.1; }
+  .badge-label { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.5em; text-transform: uppercase; color: var(--gold); opacity: 0.3; display: block; margin-top: 8px; }
+
+  .metrics-strip { background: var(--green-deep); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 60px; display: grid; grid-template-columns: repeat(4, 1fr); }
+  .metric { padding: 20px 40px; border-right: 1px solid var(--border); }
+  .metric:first-child { padding-left: 0; }
+  .metric:last-child { border-right: none; }
+  .metric-number { font-family: var(--font-display); font-size: clamp(2.5rem, 4vw, 4rem); font-weight: 700; color: var(--gold); line-height: 1; margin-bottom: 8px; display: block; }
+  .metric-label { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-dim); display: block; line-height: 1.5; }
+
+  .positioning { padding: 120px 60px; display: grid; grid-template-columns: 300px 1fr; gap: 80px; align-items: start; max-width: 1200px; margin: 0 auto; }
+  .section-label { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.4em; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; display: flex; align-items: center; gap: 12px; }
+  .section-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+  .pos-left { position: sticky; top: 100px; }
+  .pos-left h2 { font-family: var(--font-display); font-size: clamp(2.5rem, 4vw, 3.8rem); font-weight: 300; line-height: 1.1; color: #1c3424; }
+  .pos-left h2 em { font-style: italic; color: var(--gold-light); }
+  .pos-right { padding-top: 12px; }
+  .pos-statement { font-family: var(--font-display); font-size: 1.5rem; font-weight: 300; font-style: italic; color: var(--text-dim); line-height: 1.7; margin-bottom: 36px; padding: 0 0 36px 24px; border-bottom: 1px solid var(--border); border-left: 1px solid var(--border); }
+  .pos-body { font-size: 0.95rem; color: var(--text-dim); line-height: 2; margin-bottom: 20px; }
+  .pos-tags { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 40px; }
+  .tag { display: inline-block; padding: 7px 18px; border: 1px solid var(--border); font-size: 0.7rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-dim); transition: all 0.3s; }
+  .tag:hover { border-color: var(--gold); color: var(--gold); }
+
+  .portfolio-section { background: var(--surface); padding: 120px 60px; border-top: 1px solid var(--border); }
+  .portfolio-header { max-width: 1200px; margin: 0 auto 80px; display: flex; justify-content: space-between; align-items: flex-end; }
+  .portfolio-header h2 { font-family: var(--font-display); font-size: clamp(3rem, 5vw, 5rem); font-weight: 300; line-height: 1; color: var(--cream); }
+  .portfolio-header h2 span { display: block; font-style: italic; color: var(--gold-light); }
+  .portfolio-count { font-family: var(--font-display); font-size: 1rem; font-style: italic; color: var(--text-dim); }
+  .events-grid { max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 2px; }
+  .event-card { background: var(--card); border: 1px solid var(--border); overflow: hidden; position: relative; transition: border-color 0.4s; }
+  .event-card:hover { border-color: rgba(42,122,75,0.5); }
+  .event-card:hover .card-accent { transform: scaleX(1); }
+  .event-card:hover .card-number { color: var(--gold); }
+  .card-accent { position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, var(--green-bright), var(--gold), var(--gold-light)); transform: scaleX(0); transform-origin: left; transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1); }
+  .card-header { display: grid; grid-template-columns: 80px 1fr auto; align-items: start; gap: 32px; padding: 48px 48px 32px; cursor: pointer; }
+  .card-number { font-family: var(--font-display); font-size: 3.5rem; font-weight: 700; color: var(--border); line-height: 1; transition: color 0.4s; padding-top: 4px; }
+  .card-category { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.35em; text-transform: uppercase; color: var(--green-bright); margin-bottom: 12px; display: block; }
+  .card-title { font-family: var(--font-display); font-size: clamp(1.6rem, 3vw, 2.5rem); font-weight: 600; color: var(--cream); line-height: 1.1; margin-bottom: 10px; }
+  .card-meta { font-size: 0.8rem; color: var(--text-dim); font-style: italic; }
+  .card-toggle { width: 44px; height: 44px; border: 1px solid var(--border); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--text-dim); font-size: 1.2rem; transition: all 0.3s; flex-shrink: 0; margin-top: 4px; background: transparent; cursor: pointer; font-family: var(--font-body); }
+  .event-card.open .card-toggle { border-color: var(--gold); color: var(--gold); transform: rotate(45deg); }
+  .card-body { display: none; padding: 0 48px 48px 160px; animation: fadeInDown 0.4s ease; }
+  .event-card.open .card-body { display: block; }
+  @keyframes fadeInDown { from { opacity: 0; transform: translateY(-12px); } to { opacity: 1; transform: translateY(0); } }
+  .card-divider { height: 1px; background: var(--border); margin-bottom: 40px; }
+  .card-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; margin-bottom: 36px; }
+  .col-label { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; display: flex; align-items: center; gap: 10px; }
+  .col-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+  .col-content { font-size: 0.9rem; color: var(--text); line-height: 1.9; }
+  .col-content ul { list-style: none; }
+  .col-content li { padding-left: 20px; position: relative; margin-bottom: 10px; }
+  .col-content li::before { content: '—'; position: absolute; left: 0; color: var(--green-bright); font-size: 0.8em; }
+  .impact-section-label { font-size: 0.62rem; font-weight: 700; letter-spacing: 0.3em; text-transform: uppercase; color: var(--text-dim); margin: 24px 0 10px; display: flex; align-items: center; gap: 10px; }
+  .impact-section-label::after { content: ''; flex: 1; height: 1px; background: var(--border); opacity: 0.5; }
+  .impact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 2px; margin-top: 4px; }
+  .impact-item { background: rgba(42,122,75,0.06); border: 1px solid rgba(42,122,75,0.2); padding: 20px 24px; transition: background 0.3s, border-color 0.3s; }
+  .impact-item:hover { background: rgba(200,164,90,0.05); border-color: rgba(200,164,90,0.2); }
+  .impact-value { font-family: var(--font-display); font-size: 1.8rem; font-weight: 700; color: var(--gold); display: block; line-height: 1; margin-bottom: 6px; }
+  .impact-desc { font-size: 0.72rem; color: var(--text-dim); line-height: 1.5; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 500; }
+  .card-placeholder { background: rgba(42,122,75,0.02); border: 1px dashed rgba(42,122,75,0.25); }
+  .placeholder-notice { background: rgba(200,164,90,0.05); border: 1px solid rgba(200,164,90,0.15); padding: 20px 24px; font-size: 0.82rem; color: var(--text-dim); font-style: italic; line-height: 1.8; }
+  .placeholder-notice strong { color: var(--gold); font-style: normal; }
+
+  .expertise-section { padding: 120px 60px; max-width: 1200px; margin: 0 auto; }
+  .expertise-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; margin-top: 60px; }
+  .expertise-card { background: var(--surface); border: 1px solid var(--border); padding: 40px 36px; position: relative; overflow: hidden; transition: border-color 0.4s; }
+  .expertise-card::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, var(--green-bright), var(--gold)); transform: scaleX(0); transform-origin: left; transition: transform 0.4s; }
+  .expertise-card:hover { border-color: rgba(42,122,75,0.4); }
+  .expertise-card:hover::after { transform: scaleX(1); }
+  .expertise-num { font-family: var(--font-display); font-size: 4rem; font-weight: 700; color: rgba(42,122,75,0.07); position: absolute; top: 16px; right: 24px; line-height: 1; pointer-events: none; }
+  .expertise-icon { font-size: 1.2rem; margin-bottom: 20px; display: block; color: var(--green-bright); opacity: 0.7; }
+  .expertise-card h3 { font-family: var(--font-display); font-size: 1.3rem; font-weight: 600; color: var(--cream); margin-bottom: 16px; line-height: 1.2; }
+  .expertise-card p { font-size: 0.85rem; color: var(--text-dim); line-height: 1.9; }
+
+  .tools-section { background: var(--green-deep); border-top: 1px solid var(--border); padding: 100px 60px; }
+  .tools-inner { max-width: 1200px; margin: 0 auto; }
+  .tools-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 2px; margin-top: 48px; }
+  .tool-item { background: rgba(42,122,75,0.05); border: 1px solid var(--border); padding: 16px 18px; font-size: 0.78rem; font-weight: 500; color: var(--text-dim); letter-spacing: 0.06em; transition: all 0.3s; text-align: center; }
+  .tool-item:hover { border-color: var(--gold); color: var(--gold); background: rgba(200,164,90,0.04); }
+
+  .contact-section { background: var(--green-deep); border-top: 1px solid var(--border); padding: 120px 60px; text-align: center; position: relative; overflow: hidden; }
+  .contact-section::after { content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 800px; height: 800px; border-radius: 50%; background: radial-gradient(circle, rgba(42,122,75,0.12) 0%, transparent 70%); pointer-events: none; }
+  .contact-section::before { content: 'CONNECT'; position: absolute; font-family: var(--font-display); font-size: 22vw; font-weight: 700; color: transparent; -webkit-text-stroke: 1px rgba(42,122,75,0.06); top: 50%; left: 50%; transform: translate(-50%, -50%); white-space: nowrap; pointer-events: none; }
+  .contact-inner { position: relative; z-index: 2; }
+  .contact-pre { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.4em; text-transform: uppercase; color: var(--gold); margin-bottom: 24px; display: flex; align-items: center; justify-content: center; gap: 16px; }
+  .contact-pre::before, .contact-pre::after { content: ''; width: 60px; height: 1px; background: var(--gold); opacity: 0.4; }
+  .contact-heading { font-family: var(--font-display); font-size: clamp(3rem, 6vw, 6rem); font-weight: 300; color: #1c3424; line-height: 1.05; margin-bottom: 20px; }
+  .contact-heading em { font-style: italic; color: var(--gold-light); }
+  .contact-sub { font-size: 1rem; color: var(--text-dim); margin-bottom: 60px; max-width: 500px; margin-left: auto; margin-right: auto; line-height: 1.8; }
+  .contact-links { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+  .contact-item { display: flex; align-items: center; gap: 12px; padding: 18px 36px; border: 1px solid var(--border); color: var(--text); text-decoration: none; font-size: 0.85rem; font-weight: 500; letter-spacing: 0.08em; transition: all 0.3s; }
+  .contact-item:hover { border-color: var(--gold); color: var(--gold); background: rgba(200,164,90,0.04); }
+
+  footer { background: var(--black); border-top: 1px solid var(--border); padding: 32px 60px; display: flex; justify-content: space-between; align-items: center; }
+  .footer-logo { font-family: var(--font-display); font-size: 0.95rem; font-weight: 600; letter-spacing: 0.12em; color: var(--text-dim); }
+  .footer-copy { font-size: 0.72rem; color: var(--text-dim); letter-spacing: 0.1em; }
+
+  .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+  .reveal-delay-1 { transition-delay: 0.1s; } .reveal-delay-2 { transition-delay: 0.2s; } .reveal-delay-3 { transition-delay: 0.3s; }
+
+  @media (max-width: 900px) {
+    nav { padding: 20px 30px; } .nav-links { display: none; }
+    .hero { grid-template-columns: 1fr; min-height: auto; } .hero-left { padding: 120px 30px 60px; } .hero-right { display: none; }
+    .metrics-strip { grid-template-columns: repeat(2, 1fr); padding: 40px 30px; } .metric { padding: 24px 20px; border-right: none; border: 1px solid var(--border); }
+    .positioning { grid-template-columns: 1fr; padding: 80px 30px; gap: 40px; } .pos-left { position: static; }
+    .portfolio-section { padding: 80px 30px; } .portfolio-header { flex-direction: column; gap: 16px; align-items: flex-start; }
+    .card-header { grid-template-columns: 1fr auto; padding: 32px 24px 24px; } .card-number { display: none; } .card-body { padding: 0 24px 40px; } .card-cols { grid-template-columns: 1fr; gap: 32px; } .impact-grid { grid-template-columns: 1fr 1fr; }
+    .expertise-section { padding: 80px 30px; } .expertise-grid { grid-template-columns: 1fr; }
+    .tools-section { padding: 80px 30px; } .tools-grid { grid-template-columns: repeat(3, 1fr); }
+    .contact-section { padding: 80px 30px; } .contact-links { flex-direction: column; align-items: center; } .contact-item { width: 100%; justify-content: center; max-width: 340px; }
+    footer { flex-direction: column; gap: 12px; text-align: center; padding: 24px 30px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nav-logo">
+    <svg width="30" height="30" viewBox="0 0 100 100" fill="none">
+      <polygon points="50,4 96,50 50,96 4,50" stroke="#c8a45a" stroke-width="1.5" fill="none"/>
+      <polygon points="50,11 89,50 50,89 11,50" stroke="#2a7a4b" stroke-width="1.4" fill="none" opacity="0.75"/>
+      <text x="50" y="58" font-family="Cormorant Garamond,Georgia,serif" font-size="26" font-weight="600" fill="#c8a45a" text-anchor="middle" letter-spacing="1">MAJ</text>
+      <line x1="50" y1="4" x2="50" y2="13" stroke="#e2c07a" stroke-width="1" opacity="0.6"/>
+      <line x1="50" y1="87" x2="50" y2="96" stroke="#e2c07a" stroke-width="1" opacity="0.6"/>
+    </svg>
+    <span class="nav-logo-text">M. A. Jackson</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#portfolio">Portfolio</a></li>
+    <li><a href="#expertise">Expertise</a></li>
+    <li><a href="#tools">Tools</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-eyebrow">Event Marketing Strategist</div>
+    <h1 class="hero-name">M. A.<br><em>Jackson</em></h1>
+    <p class="hero-title">MBA, MSBM — Revenue Architecture<br>Through Strategic Event Programs</p>
+    <p class="hero-statement">I don't fix broken events. I build event programs that generate measurable pipeline, drive process efficiency, and create repeatable frameworks that scale — for corporations, agencies, and industry associations.</p>
+    <div class="hero-cta">
+      <a href="#portfolio" class="btn-primary">View Portfolio →</a>
+      <a href="#contact" class="btn-ghost">Get in Touch</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-grid"></div>
+    <div class="hero-large-text">MJ</div>
+    <div class="hero-badge">
+      <span class="badge-years">18</span>
+      <span class="badge-label">Years of Strategic Expertise</span>
+    </div>
+  </div>
+</section>
+
+<div class="metrics-strip">
+  <div class="metric reveal"><span class="metric-number">$260M</span><span class="metric-label">Sales Pipeline<br>Generated</span></div>
+  <div class="metric reveal reveal-delay-1"><span class="metric-number">$3.5M</span><span class="metric-label">Direct Revenue<br>from Consulting</span></div>
+  <div class="metric reveal reveal-delay-2"><span class="metric-number">$1.2M</span><span class="metric-label">Annual Budget<br>Managed</span></div>
+  <div class="metric reveal reveal-delay-3"><span class="metric-number">80%+</span><span class="metric-label">CSAT Maintained<br>Through Restructuring</span></div>
+</div>
+
+<section class="positioning">
+  <div class="pos-left reveal">
+    <div class="section-label">Philosophy</div>
+    <h2>Strategy<br>before<br><em>spectacle.</em></h2>
+  </div>
+  <div class="pos-right reveal reveal-delay-2">
+    <p class="pos-statement">"Every event is a revenue conversation. The room, the agenda, the follow-through — all of it is pipeline architecture in disguise."</p>
+    <p class="pos-body">With 18+ years spanning Fortune 500 agencies, corporate B2B, sports organizations, nonprofits, and independent consulting, I bring cross-sector intelligence that most event marketers simply don't have. I've managed events in 3 countries, rationalized processes across 14 offices, and maintained performance through two corporate restructurings.</p>
+    <p class="pos-body">My specialty is event marketing for companies and associations that treat events as a serious business driver — not a line item to cut. I engineer programs with the same rigor a CFO applies to capital allocation: clear objectives, measurable outcomes, and systems that outlast any single hire.</p>
+    <div class="pos-tags">
+      <span class="tag">Trade Shows</span>
+      <span class="tag">Industry Conferences</span>
+      <span class="tag">Executive Roundtables</span>
+      <span class="tag">Sponsorship Strategy</span>
+      <span class="tag">Pipeline Generation</span>
+      <span class="tag">ABM & Field Marketing</span>
+      <span class="tag">Channel Partner Programs</span>
+      <span class="tag">VIP Programs</span>
+      <span class="tag">Process Design</span>
+      <span class="tag">Budget Management</span>
+      <span class="tag">Industry Associations</span>
+      <span class="tag">Crisis Management</span>
+    </div>
+  </div>
+</section>
+
+<section class="portfolio-section" id="portfolio">
+  <div class="portfolio-header reveal">
+    <h2>Selected<br><span>Programs</span></h2>
+    <p class="portfolio-count">7 case studies →</p>
+  </div>
+  <div class="events-grid">
+
+    <!-- 01: NADA ENRICHED -->
+    <div class="event-card reveal" id="card-1">
+      <div class="card-accent"></div>
+      <div class="card-header" onclick="toggleCard('card-1')">
+        <div class="card-number">01</div>
+        <div class="card-title-group">
+          <span class="card-category">Trade Show Activation · Automotive B2B</span>
+          <h3 class="card-title">NADA Auto Show</h3>
+          <p class="card-meta">2022 · 2023 · 2024 &nbsp;|&nbsp; Las Vegas Convention Center &nbsp;|&nbsp; 50'×60' Booth · 4 Days</p>
+        </div>
+        <button class="card-toggle" aria-label="Toggle">+</button>
+      </div>
+      <div class="card-body">
+        <div class="card-divider"></div>
+        <div class="card-cols">
+          <div>
+            <div class="col-label">The Challenge</div>
+            <p class="col-content">Establish automotiveMastermind as the premier presence at the automotive industry's flagship trade show — during the first 6 months of employment, an active corporate rebranding under S&P Global acquisition, and the launch of a major platform repositioning to a new category leader.</p>
+          </div>
+          <div>
+            <div class="col-label">How I Executed</div>
+            <div class="col-content">
+              <ul>
+                <li>Produced a 50'×60' exhibit with 12 demo stations, content stage, hospitality bar, 2 meeting spaces, and VIP registration</li>
+                <li>Led cross-functional team of 8 + 50+ onsite staff — C-suite, BD, marketing, compliance, PR, and social media</li>
+                <li>Managed $850K+ show-specific budget across booth build, AV, SWAG, vendor coordination, and travel for 50+ team members</li>
+                <li>Orchestrated Las Vegas Sphere sponsorship — NADA Welcome Party, private suite, "Postcard from Earth" screening</li>
+                <li>Drove pre-show email campaigns to 88,000 prospects; direct mail and GM-specific incentive pipeline campaign</li>
+                <li>Produced content stage hosted by Wendy Engelhardt — 11 partner/executive interviews, 6 tier-1 media placements</li>
+                <li>Coordinated channel partner programs and ABM initiatives — to-channel/through-channel reseller activations for high-value dealer groups across North American markets</li>
+                <li>Issued 3 coordinated press releases; announced Morgan Automotive Group partnership at show peak</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-label">Business Impact</div>
+        <div class="impact-section-label">Lead Generation</div>
+        <div class="impact-grid">
+          <div class="impact-item"><span class="impact-value">137</span><span class="impact-desc">New pipeline opportunities</span></div>
+          <div class="impact-item"><span class="impact-value">$896K</span><span class="impact-desc">Measured customer value</span></div>
+          <div class="impact-item"><span class="impact-value">193</span><span class="impact-desc">Demo submissions</span></div>
+          <div class="impact-item"><span class="impact-value">3.9%</span><span class="impact-desc">CTR — above benchmark</span></div>
+        </div>
+        <div class="impact-section-label">Business Development</div>
+        <div class="impact-grid">
+          <div class="impact-item"><span class="impact-value">$335K</span><span class="impact-desc">Record BD/SD closed January post-show</span></div>
+          <div class="impact-item"><span class="impact-value">$71K</span><span class="impact-desc">New at-show contracts</span></div>
+          <div class="impact-item"><span class="impact-value">$850K+</span><span class="impact-desc">Show-specific budget managed</span></div>
+          <div class="impact-item"><span class="impact-value">50+</span><span class="impact-desc">Onsite staff coordinated</span></div>
+        </div>
+        <div class="impact-section-label">Media & Digital</div>
+        <div class="impact-grid">
+          <div class="impact-item"><span class="impact-value">8</span><span class="impact-desc">Earned media — Automotive News, CBT, Wards Auto, Auto Remarketing</span></div>
+          <div class="impact-item"><span class="impact-value">97.9K</span><span class="impact-desc">Total impressions</span></div>
+          <div class="impact-item"><span class="impact-value">1,087</span><span class="impact-desc">Landing page visitors</span></div>
+          <div class="impact-item"><span class="impact-value">1,350+</span><span class="impact-desc">Social engagements</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 02: REGIONAL -->
+    <div class="event-card reveal reveal-delay-1" id="card-2">
+      <div class="card-accent"></div>
+      <div class="card-header" onclick="toggleCard('card-2')">
+        <div class="card-number">02</div>
+        <div class="card-title-group">
+          <span class="card-category">Field Marketing Portfolio · Nationwide</span>
+          <h3 class="card-title">Regional Field Events Program</h3>
+          <p class="card-meta">2022–2024 &nbsp;|&nbsp; automotiveMastermind</p>
+        </div>
+        <button class="card-toggle" aria-label="Toggle">+</button>
+      </div>
+      <div class="card-body">
+        <div class="card-divider"></div>
+        <div class="card-cols">
+          <div>
+            <div class="col-label">The Challenge</div>
+            <p class="col-content">Scale high-touch regional event programs supporting a distributed sales team across North American markets — while maintaining brand consistency, tight ROI accountability, and 80%+ CSAT through a corporate restructuring and marketing department reorganization.</p>
+          </div>
+          <div>
+            <div class="col-label">How I Executed</div>
+            <div class="col-content">
+              <ul>
+                <li>Managed 60+ field events annually — executive roundtables, dealer activations, regional conferences, and webinars</li>
+                <li>Built scalable playbooks enabling consistent multi-market execution across North American regions</li>
+                <li>Coordinated channel partner programs and ABM initiatives for high-value dealer groups and enterprise partners</li>
+                <li>Partnered with Brand, Product Marketing, and Field Marketing on integrated go-to-market strategies and executive thought leadership</li>
+                <li>Cultivated strategic industry association relationships driving precise audience targeting for 10+ trade shows</li>
+                <li>Implemented systematic post-event ROI reporting tied directly to commercial sales goals</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-label">Business Impact</div>
+        <div class="impact-grid">
+          <div class="impact-item"><span class="impact-value">60+</span><span class="impact-desc">Field events per year</span></div>
+          <div class="impact-item"><span class="impact-value">$1.2M</span><span class="impact-desc">Annual budget managed</span></div>
+          <div class="impact-item"><span class="impact-value">80%+</span><span class="impact-desc">CSAT maintained through restructuring</span></div>
+          <div class="impact-item"><span class="impact-value">90%+</span><span class="impact-desc">Internal quality scores (IQS)</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 03: CZARNOWSKI -->
+    <div class="event-card reveal" id="card-3">
+      <div class="card-accent"></div>
+      <div class="card-header" onclick="toggleCard('card-3')">
+        <div class="card-number">03</div>
+        <div class="card-title-group">
+          <span class="card-category">Agency · Fortune 500 Client Activations</span>
+          <h3 class="card-title">Czarnowski Collective</h3>
+          <p class="card-meta">2008–2015 &nbsp;|&nbsp; Atlanta · Austell · Cologne, Germany &nbsp;|&nbsp; Promoted 2×</p>
+        </div>
+        <button class="card-toggle" aria-label="Toggle">+</button>
+      </div>
+      <div class="card-body">
+        <div class="card-divider"></div>
+        <div class="card-cols">
+          <div>
+            <div class="col-label">The Challenge</div>
+            <p class="col-content">Deliver world-class experiential event programs and a new business development strategy for Fortune 500 brands across 14 offices nationwide and international markets — while modernizing marketing processes and driving measurable agency-wide efficiency gains.</p>
+          </div>
+          <div>
+            <div class="col-label">How I Executed</div>
+            <div class="col-content">
+              <ul>
+                <li>Managed event strategy and execution for GM, Coca-Cola, Nike, Stryker, Dow, and Purdue Pharma</li>
+                <li>Implemented Loopio RFP/RFI platform streamlining multi-stakeholder bid management and proposal efficiency</li>
+                <li>Developed and executed a 3-year business development strategy driving rapid profit growth across 14 offices</li>
+                <li>Trained 2 new associates on proposal submission standards improving sales enablement efficiency</li>
+                <li>Consistently delivered flagship events under budget: $300K in 2011, $285K in 2012</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-label">Business Impact</div>
+        <div class="impact-grid">
+          <div class="impact-item"><span class="impact-value">$260M</span><span class="impact-desc">Pipeline secured through RFP/RFI strategy</span></div>
+          <div class="impact-item"><span class="impact-value">$122K</span><span class="impact-desc">Annual overhead eliminated</span></div>
+          <div class="impact-item"><span class="impact-value">30%</span><span class="impact-desc">Productivity increase in 1 year</span></div>
+          <div class="impact-item"><span class="impact-value">14</span><span class="impact-desc">Offices rationalized nationwide</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 04: CONSULTING -->
+    <div class="event-card reveal reveal-delay-1" id="card-4">
+      <div class="card-accent"></div>
+      <div class="card-header" onclick="toggleCard('card-4')">
+        <div class="card-number">04</div>
+        <div class="card-title-group">
+          <span class="card-category">Fractional Chief Events Officer · Cross-Sector</span>
+          <h3 class="card-title">Multi-Day Signature Conferences</h3>
+          <p class="card-meta">2015–2022 &nbsp;|&nbsp; LIVINGSTONdrive (Various Clients)</p>
+        </div>
+        <button class="card-toggle" aria-label="Toggle">+</button>
+      </div>
+      <div class="card-body">
+        <div class="card-divider"></div>
+        <div class="card-cols">
+          <div>
+            <div class="col-label">The Challenge</div>
+            <p class="col-content">Build flagship branded conferences from concept for startups and multimillion-dollar corporations across Advertising & Marketing, Automotive, Clinical Research, Dental Products, Industrial Automation & Manufacturing, Investment Banking, Non-profits, Membership Associations, and Staffing & Recruiting — each requiring premium attendee experiences and verifiable ROI.</p>
+          </div>
+          <div>
+            <div class="col-label">How I Executed</div>
+            <div class="col-content">
+              <ul>
+                <li>Served as fractional Chief Events Officer — executive-level strategic consulting on event portfolio optimization, brand positioning, and revenue generation</li>
+                <li>Led end-to-end strategy, content development, production, and on-site execution for multi-day conferences</li>
+                <li>Created repeatable frameworks and playbooks increasing event efficiency by 30% while driving measurable pipeline growth</li>
+                <li>Crafted sponsorship proposals for flagship industry events exceeding revenue targets through tailored partnership packages</li>
+                <li>Oversaw executive roundtables and VIP programs including hybrid AV, budget management, and vendor supervision</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-label">Business Impact</div>
+        <div class="impact-grid">
+          <div class="impact-item"><span class="impact-value">$3.5M</span><span class="impact-desc">Sales leads generated</span></div>
+          <div class="impact-item"><span class="impact-value">8%</span><span class="impact-desc">High-profile client retention increase</span></div>
+          <div class="impact-item"><span class="impact-value">30%</span><span class="impact-desc">Event efficiency gains through standardized processes</span></div>
+          <div class="impact-item"><span class="impact-value">9</span><span class="impact-desc">Industries served across consulting portfolio</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 05: SPORTS -->
+    <div class="event-card reveal" id="card-5">
+      <div class="card-accent"></div>
+      <div class="card-header" onclick="toggleCard('card-5')">
+        <div class="card-number">05</div>
+        <div class="card-title-group">
+          <span class="card-category">Sports & Entertainment · Sponsorship Programs</span>
+          <h3 class="card-title">Detroit Pistons &amp; Georgia Force</h3>
+          <p class="card-meta">2005–2007 &nbsp;|&nbsp; Auburn Hills, MI · Buford, GA</p>
+        </div>
+        <button class="card-toggle" aria-label="Toggle">+</button>
+      </div>
+      <div class="card-body">
+        <div class="card-divider"></div>
+        <div class="card-cols">
+          <div>
+            <div class="col-label">The Challenge</div>
+            <p class="col-content">Create fan engagement experiences, community programming, and corporate partnership activations that drive attendance, sponsorship value, and community impact — building tracking and retention systems where none previously existed.</p>
+          </div>
+          <div>
+            <div class="col-label">How I Executed</div>
+            <div class="col-content">
+              <ul>
+                <li>Managed game-day operations, VIP hospitality, and corporate partnership events for two professional sports organizations</li>
+                <li>Developed and pitched community relations and player awareness programs generating $1.7M in nonprofit donations</li>
+                <li>Designed and implemented a VIP guest tracking and follow-up system — first of its kind internally at both organizations</li>
+                <li>Led strategic sponsorship management and Georgia Force in-game activations boosting corporate partnership contracts by 23%</li>
+                <li>Managed educational initiatives supporting 1,200+ students through college-bound programs at Kettering High</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-label">Business Impact</div>
+        <div class="impact-grid">
+          <div class="impact-item"><span class="impact-value">$1.7M</span><span class="impact-desc">Donations generated for nonprofits</span></div>
+          <div class="impact-item"><span class="impact-value">23%</span><span class="impact-desc">Increase in corporate partnership contracts</span></div>
+          <div class="impact-item"><span class="impact-value">6</span><span class="impact-desc">Community centers opened/renovated</span></div>
+          <div class="impact-item"><span class="impact-value">1,200+</span><span class="impact-desc">Students served through education programs</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 06: EXECUTIVE ROUNDTABLES -->
+    <div class="event-card reveal reveal-delay-1" id="card-6">
+      <div class="card-accent"></div>
+      <div class="card-header" onclick="toggleCard('card-6')">
+        <div class="card-number">06</div>
+        <div class="card-title-group">
+          <span class="card-category">Executive Programs · B2B & Professional Services</span>
+          <h3 class="card-title">Executive Roundtables &amp; VIP Programs</h3>
+          <p class="card-meta">2015–2024 &nbsp;|&nbsp; Multiple Clients &nbsp;|&nbsp; Various Industries</p>
+        </div>
+        <button class="card-toggle" aria-label="Toggle">+</button>
+      </div>
+      <div class="card-body">
+        <div class="card-divider"></div>
+        <div class="card-cols">
+          <div>
+            <div class="col-label">The Challenge</div>
+            <p class="col-content">Create intimate, high-stakes experiences for C-suite executives demanding flawless execution, strategic content design, and meticulous discretion — while building replicable frameworks that sales and marketing teams could scale across client portfolios.</p>
+          </div>
+          <div>
+            <div class="col-label">How I Executed</div>
+            <div class="col-content">
+              <ul>
+                <li>Designed C-suite roundtable discussions, VIP dinners, and executive summits end-to-end across multiple client engagements</li>
+                <li>Managed all logistics: venue selection, AV coordination, content development, guest experience, and run-of-show</li>
+                <li>Oversaw roadshows, VIP management, and hybrid audio-visual coordination for executive leadership exclusive events</li>
+                <li>Coordinated with executive leadership on strategic objectives, messaging, and relationship-building goals</li>
+                <li>Built repeatable executive programming frameworks replicable across client portfolio</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-label">Business Impact</div>
+        <div class="impact-grid">
+          <div class="impact-item"><span class="impact-value">100%</span><span class="impact-desc">On-site execution with zero service failures</span></div>
+          <div class="impact-item"><span class="impact-value">8%</span><span class="impact-desc">High-profile client retention improvement</span></div>
+          <div class="impact-item"><span class="impact-value">C-Suite</span><span class="impact-desc">Consistent delivery for Fortune 500 leadership</span></div>
+          <div class="impact-item"><span class="impact-value">Multi-yr</span><span class="impact-desc">Contract renewals through relationship quality</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 07: B&R PLACEHOLDER -->
+    <div class="event-card card-placeholder reveal" id="card-7">
+      <div class="card-accent"></div>
+      <div class="card-header" onclick="toggleCard('card-7')">
+        <div class="card-number">07</div>
+        <div class="card-title-group">
+          <span class="card-category">Multi-Day User Conference · Industrial Automation</span>
+          <h3 class="card-title">AutomationCON</h3>
+          <p class="card-meta">B&amp;R Industrial Automation &nbsp;|&nbsp; Lanier Islands Resort &nbsp;|&nbsp; 3 Days</p>
+        </div>
+        <button class="card-toggle" aria-label="Toggle">+</button>
+      </div>
+      <div class="card-body">
+        <div class="card-divider"></div>
+        <div class="placeholder-notice">
+          <strong>Case study in progress.</strong> Full metrics and outcomes coming soon. Challenge, execution framework, and impact metrics will be added once confirmed.
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="expertise-section" id="expertise">
+  <div class="section-label reveal">Core Capabilities</div>
+  <div class="expertise-grid">
+    <div class="expertise-card reveal">
+      <span class="expertise-num">01</span><span class="expertise-icon">⬛</span>
+      <h3>Revenue Pipeline Architecture</h3>
+      <p>Structuring event programs as pipeline engines — from pre-show targeting and at-show activation to post-event follow-through that converts contacts to contracts.</p>
+    </div>
+    <div class="expertise-card reveal reveal-delay-1">
+      <span class="expertise-num">02</span><span class="expertise-icon">◆</span>
+      <h3>Process Design & Efficiency</h3>
+      <p>Building scalable frameworks, playbooks, and systems that eliminate chaos, reduce planning time, and create institutional knowledge that survives personnel change.</p>
+    </div>
+    <div class="expertise-card reveal reveal-delay-2">
+      <span class="expertise-num">03</span><span class="expertise-icon">▲</span>
+      <h3>Stakeholder & Budget Management</h3>
+      <p>Managing complex, multi-stakeholder environments — executive sponsors, agency partners, vendors, and sales teams — with complete P&L accountability up to $1.2M annually.</p>
+    </div>
+    <div class="expertise-card reveal reveal-delay-3">
+      <span class="expertise-num">04</span><span class="expertise-icon">●</span>
+      <h3>Trade Show & Conference Strategy</h3>
+      <p>Full-cycle trade show management: booth strategy, sponsorship negotiation, audience targeting, on-site execution, and ROI reporting tied directly to commercial outcomes.</p>
+    </div>
+    <div class="expertise-card reveal reveal-delay-1">
+      <span class="expertise-num">05</span><span class="expertise-icon">◉</span>
+      <h3>Sponsorship & Association Programs</h3>
+      <p>Designing and selling sponsorship packages for industry associations and branded events — structuring partnerships that exceed revenue targets while delivering measurable sponsor value.</p>
+    </div>
+    <div class="expertise-card reveal reveal-delay-2">
+      <span class="expertise-num">06</span><span class="expertise-icon">▣</span>
+      <h3>Cross-Sector Intelligence</h3>
+      <p>18+ years across corporate, agency, nonprofit, sports, and consulting — bringing best practices from one sector into another, accelerating what works and eliminating what doesn't.</p>
+    </div>
+  </div>
+</section>
+
+<section class="tools-section" id="tools">
+  <div class="tools-inner">
+    <div class="section-label reveal">Technical Proficiencies</div>
+    <div class="tools-grid">
+      <div class="tool-item reveal">Asana</div>
+      <div class="tool-item reveal reveal-delay-1">Basecamp</div>
+      <div class="tool-item reveal reveal-delay-2">Box</div>
+      <div class="tool-item reveal reveal-delay-3">Carrd.co</div>
+      <div class="tool-item reveal">ClickUp</div>
+      <div class="tool-item reveal reveal-delay-1">CVENT</div>
+      <div class="tool-item reveal reveal-delay-2">Discord</div>
+      <div class="tool-item reveal reveal-delay-3">EventCreate</div>
+      <div class="tool-item reveal">Google Workspace</div>
+      <div class="tool-item reveal reveal-delay-1">Loopio</div>
+      <div class="tool-item reveal reveal-delay-2">macOS</div>
+      <div class="tool-item reveal reveal-delay-3">MS Office Suite</div>
+      <div class="tool-item reveal">MS Teams</div>
+      <div class="tool-item reveal reveal-delay-1">Otter</div>
+      <div class="tool-item reveal reveal-delay-2">Salesforce</div>
+      <div class="tool-item reveal reveal-delay-3">SharePoint</div>
+      <div class="tool-item reveal">Slack</div>
+      <div class="tool-item reveal reveal-delay-1">Social Tables</div>
+      <div class="tool-item reveal reveal-delay-2">Storydoc</div>
+      <div class="tool-item reveal reveal-delay-3">Trello</div>
+      <div class="tool-item reveal">Zoom</div>
+    </div>
+  </div>
+</section>
+
+<section class="contact-section" id="contact">
+  <div class="contact-inner">
+    <div class="contact-pre">Let's Build Something</div>
+    <h2 class="contact-heading">Ready to drive<br><em>real revenue?</em></h2>
+    <p class="contact-sub">Available for senior event marketing roles and strategic consulting engagements with companies and industry associations.</p>
+    <div class="contact-links">
+      <a href="mailto:majackson2202@gmail.com" class="contact-item">✉ &nbsp;majackson2202@gmail.com</a>
+      <a href="https://www.linkedin.com/in/marlinejackson" target="_blank" class="contact-item">in &nbsp;LinkedIn Profile</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">M. A. Jackson, MBA, MSBM</div>
+  <div class="footer-copy">© 2026 · Event Marketing Strategist · Remote, USA</div>
+</footer>
+
+<script>
+  function toggleCard(id) {
+    document.getElementById(id).classList.toggle('open');
+  }
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  reveals.forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
